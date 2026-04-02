@@ -1,22 +1,25 @@
-# verl documentations
+# DDPO documentations
 
-## Build the docs
-
+## Installation
+Refer to the official documentation of verl0.5.0: https://verl.readthedocs.io/en/v0.5.x/start/install.html
 ```bash
-# If you want to view auto-generated API docstring, please make sure verl is available in python path. For instance, install verl via:
-# pip install .. -e[test]
+conda create -n verl python==3.10
+conda activate verl
 
-# Install dependencies needed for building docs.
-pip install -r requirements-docs.txt
+# Make sure you have activated verl conda env
+# If you need to run with megatron
+bash scripts/install_vllm_sglang_mcore.sh
+# Or if you simply need to run with FSDP
+USE_MEGATRON=0 bash scripts/install_vllm_sglang_mcore.sh
 
-# Build the docs.
-make clean
-make html
+# Install verl
+cd verl
+pip install --no-deps -e .
 ```
 
-## Open the docs with your browser
+## Train
 
 ```bash
-python -m http.server -d _build/html/
+bash DDPO/examples/grpo_trainer/qwen3_accum_n_10_val_16.sh
 ```
-Launch your browser and navigate to http://localhost:8000 to view the documentation. Alternatively you could drag the file `_build/html/index.html` to your local browser and view directly.
+
