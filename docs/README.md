@@ -13,7 +13,6 @@ bash scripts/install_vllm_sglang_mcore.sh
 USE_MEGATRON=0 bash scripts/install_vllm_sglang_mcore.sh
 
 # Install verl
-cd verl
 pip install --no-deps -e .
 ```
 
